@@ -1,0 +1,204 @@
+body
+{
+    background-color: #000000;
+    color: #d3d3d3;
+    font-size: 48px;
+    font-family: 'Courier Prime', monospace;
+    text-align: center;
+}
+
+@keyframes animacja1
+{
+    0% {color: #ff00ff;}
+    16% {color: #0000ff;}
+    32% {color: #00ffff;}
+    48% {color: #00ff00;}
+    64% {color: #ffff00;}
+    80% {color: #ff0000;}
+    100% {color: #ff00ff;}
+}
+
+/* Paragrafy do pisania słowa mus */
+#mustext
+{
+    color: gold;
+    display: inline;
+}
+
+#score0
+{
+    animation-name: animacja1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+/* h1 do nazwy sklepów */
+h1
+{
+    display: inline;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+
+/* Pole gry */
+#game
+{
+    margin: auto;
+    padding-top: 20px;
+    width: 1000px;
+    min-height: 200px;
+}
+
+
+/* Pole z musami */
+#mus
+{
+    background-color: #000000;
+    border: none;
+    width: 500px;
+    margin: auto;
+    padding-top: 40px;
+    cursor: pointer;
+}
+
+/* Skelpy */
+#shop
+{
+    width: 440px;
+    padding: 30px;
+}
+
+/* Skelp 1 */
+#shop1
+{
+    color: #adff2f;
+}
+#shop1C
+{
+    color: yellow;
+}
+#shop1buy
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 40px;
+}
+#upgrade1
+{
+    color: #adff2f;
+}
+
+/* Skelp 2 */
+#shop2
+{
+    color: #adff2f;
+}
+#shop2C
+{
+    color: yellow;
+}
+#shop2buy
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 40px;
+}
+#upgrade2
+{
+    color: #adff2f;
+}
+
+/* Skelp 3 */
+#shop3
+{
+    color: #adff2f;
+}
+#shop3C
+{
+    color: yellow;
+}
+#shop3buy
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 40px;
+}
+#upgrade3
+{
+    color: #adff2f;
+}
+
+/* Skelp 4 */
+#shop4
+{
+    color: #adff2f;
+}
+#shop4C
+{
+    color: yellow;
+}
+#shop4buy
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 40px;
+}
+#upgrade4
+{
+    color: #adff2f;
+}
+
+/* Skelp 5 */
+#shop5
+{
+    color: #adff2f;
+}
+#shop5C
+{
+    color: yellow;
+}
+#shop5buy
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 40px;
+}
+#upgrade5
+{
+    color: #adff2f;
+}
+
+
+/* Div z xp */
+#xpBox
+{
+    clear: both;
+    text-align: center;
+}
+#lvl
+{
+    color: #adff2f;
+}
+#xp
+{
+    color: #ffff00;
+}
+#xpToLvl
+{
+    color: gray;
+}
+#lvlDe
+{
+    color: #c3c3c3;
+}
