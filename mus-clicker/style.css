@@ -48,6 +48,7 @@ h1
     padding-top: 20px;
     width: 1000px;
     min-height: 200px;
+    clear: both;
 }
 
 
@@ -201,4 +202,117 @@ h1
 #lvlDe
 {
     color: #c3c3c3;
+}
+
+
+
+#ruletka
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 60px;
+    animation-name: animacja1;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+#r1
+{
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    background-color: #808080;
+    margin: 10px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#r2
+{
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    background-color: #ff0000;
+    margin: 10px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#r3
+{
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    background-color: #0000ff;
+    margin: 10px;
+    font-size: 30px;
+    border-radius: 10px;
+    color: #d3d3d3;
+}
+
+#r4
+{
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    background-color: #ffd700;
+    margin: 10px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#pole
+{
+    background-color: #000000;
+    border: none;
+    margin: auto;
+    margin-top: 0px;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    color: #c3c3c3;
+}
+
+#rwygrana
+{
+    font-size: 20px;
+}
+
+
+
+.tabela-pomoc
+{
+    margin: auto;
+    border-left: 1px dashed #c3c3c3;
+    border-top: 1px dashed #c3c3c3;
+    font-size: 40px;
+}
+
+td, th
+{
+    border-right: 1px dashed #c3c3c3;
+    border-bottom: 1px dashed #c3c3c3;
+    padding: 10px;
+}
+th
+{
+    color: #808080;
+}
+.level-tabela
+{
+    color: #adff2f;
+}
+.n-tabela
+{
+    animation-name: animacja1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#pomoc-l
+{
+    text-align: left;
+    display: inline-block;
 }

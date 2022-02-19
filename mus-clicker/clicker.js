@@ -19,35 +19,33 @@ var shop3 = 0;
 var shop4C = 200;
 var shop4 = 0;
 
-var shop5C = 50;
-var shop5 = 0;
+
+var color = 0;
 
 
 //Ładowanie
 window.onload = loading;
 function loading()
 {
+    //punktów
     document.getElementById("score0").innerHTML = score;
 
 
-
+    //Sklepu 1
     document.getElementById("shop1").innerHTML = shop1;
     document.getElementById("shop1C").innerHTML = shop1C;
-
+    //Sklepu 1
     document.getElementById("shop2").innerHTML = shop2;
     document.getElementById("shop2C").innerHTML = shop2C;
-
+    //Sklepu 1
     document.getElementById("shop3").innerHTML = shop3;
     document.getElementById("shop3C").innerHTML = shop3C;
-
+    //Sklepu 1
     document.getElementById("shop4").innerHTML = shop4;
     document.getElementById("shop4C").innerHTML = shop4C;
 
-    document.getElementById("shop5").innerHTML = shop5;
-    document.getElementById("shop5C").innerHTML = shop5C;
 
-
-
+    //levelu i xp
     document.getElementById("lvl").innerHTML = lvl;
     document.getElementById("xpToLvl").innerHTML = xpToLvl;
     document.getElementById("xp").innerHTML = xp;
@@ -60,6 +58,8 @@ function loading()
 //Dodawanie punktów
 function AddScore(ileS)
 {   
+    //konwertuje na int bo coś się psuło z ruletką
+    ileS = parseInt(ileS);
     //dodaje tyle punktów co ileS
     score=score+ileS;
     document.getElementById("score0").innerHTML = score;
@@ -368,4 +368,73 @@ function ifShop()
 
     //Znowu działanie po 1s sklepów
     setTimeout("ifShop()",1000);
+}
+
+//Ruletka
+function Ruletka()
+{
+    //podmianka na ruletkę
+    document.getElementById("nav").innerHTML = '<input type="text" id="pole" placeholder="Ile obstawiasz?"><input type="submit" id="r1" value="Szary" onclick="SprawdzR(1)"><input type="submit" id="r2" value="Czerwony" onclick="SprawdzR(2)"><input type="submit" id="r3" value="Niebieski" onclick="SprawdzR(3)"><input type="submit" id="r4" value="Złoty" onclick="SprawdzR(4)">';
+}
+//Sprawdzanie czy wartość jest możliwa
+function SprawdzR(color)
+{
+    var scoreR = document.getElementById("pole").value;
+    var colorN = 0;
+
+    if (score>=scoreR)
+    {
+        //losowanie koloru
+        colorN = Math.floor(Math.random()*100)
+
+        //sprawdzanie koloru
+        if (colorN <= 40 && color==1)
+        {
+            //dodanie punktów
+            AddScore(scoreR);
+
+            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+scoreR+'</p>';
+        }
+        else if (colorN <= 70 && colorN > 40 && color==2)
+        {
+            //dodanie punktów
+            AddScore(2*scoreR);
+
+            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+(scoreR*2)+'</p>';
+        }
+        else if (colorN <= 90 && colorN > 70  && color==3)
+        {
+            //dodanie punktów
+            AddScore(4*scoreR);
+
+            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+(scoreR*4)+'</p>';
+        }
+        else if (colorN <= 100 && colorN > 90  && color==4)
+        {
+            //dodanie punktów
+            AddScore(9*scoreR);
+
+            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+(scoreR*9)+'</p>';
+        }
+        //przegrana
+        else
+        {
+            //odjęcie punktów
+            score = score - scoreR;
+            //wypisanie
+            document.getElementById("score0").innerHTML = score;
+
+            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednio przegrano: '+scoreR+'</p>';            
+        }  
+    }
+    //nie wystarczająco punktów
+    else if (score<scoreR)
+    {
+        alert("Nie masz tyle punktów");
+    }
+    //nie wpisano liczby
+    else
+    {
+        alert("Wpisz liczbę punktów");
+    }
 }
