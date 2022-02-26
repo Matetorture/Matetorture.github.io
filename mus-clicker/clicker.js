@@ -23,6 +23,11 @@ var shop4 = 0;
 var color = 0;
 
 
+var ilePrzed = 0;
+var ileNaS = 0;
+
+
+
 //Ładowanie
 window.onload = loading;
 function loading()
@@ -34,13 +39,13 @@ function loading()
     //Sklepu 1
     document.getElementById("shop1").innerHTML = shop1;
     document.getElementById("shop1C").innerHTML = shop1C;
-    //Sklepu 1
+    //Sklepu 2
     document.getElementById("shop2").innerHTML = shop2;
     document.getElementById("shop2C").innerHTML = shop2C;
-    //Sklepu 1
+    //Sklepu 3
     document.getElementById("shop3").innerHTML = shop3;
     document.getElementById("shop3C").innerHTML = shop3C;
-    //Sklepu 1
+    //Sklepu 4
     document.getElementById("shop4").innerHTML = shop4;
     document.getElementById("shop4C").innerHTML = shop4C;
 
@@ -52,6 +57,7 @@ function loading()
 
 
     ifShop()
+    ileSrednioNaS()
 }
 
 
@@ -74,8 +80,14 @@ function AddScore(ileS)
     document.getElementById("xp").innerHTML = xp;
 
     lvlUP();
-}
+    
+    //wypisuje pod kursorem liczbę dodaną do scoru
+    document.getElementById('cursor').innerHTML = "<br>+"+ileS;
 
+    setTimeout(() => {
+        document.getElementById('cursor').innerHTML = "";
+    }, 300)
+}
 
 
 //Kupowanie Sklep 1
@@ -370,12 +382,6 @@ function ifShop()
     setTimeout("ifShop()",1000);
 }
 
-//Ruletka
-function Ruletka()
-{
-    //podmianka na ruletkę
-    document.getElementById("nav").innerHTML = '<input type="text" id="pole" placeholder="Ile obstawiasz?"><input type="submit" id="r1" value="Szary" onclick="SprawdzR(1)"><input type="submit" id="r2" value="Czerwony" onclick="SprawdzR(2)"><input type="submit" id="r3" value="Niebieski" onclick="SprawdzR(3)"><input type="submit" id="r4" value="Złoty" onclick="SprawdzR(4)">';
-}
 //Sprawdzanie czy wartość jest możliwa
 function SprawdzR(color)
 {
@@ -393,28 +399,28 @@ function SprawdzR(color)
             //dodanie punktów
             AddScore(scoreR);
 
-            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+scoreR+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+scoreR+'</p>';
         }
         else if (colorN <= 70 && colorN > 40 && color==2)
         {
             //dodanie punktów
             AddScore(2*scoreR);
 
-            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+(scoreR*2)+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+(scoreR*2)+'</p>';
         }
         else if (colorN <= 90 && colorN > 70  && color==3)
         {
             //dodanie punktów
             AddScore(4*scoreR);
 
-            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+(scoreR*4)+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+(scoreR*4)+'</p>';
         }
         else if (colorN <= 100 && colorN > 90  && color==4)
         {
             //dodanie punktów
             AddScore(9*scoreR);
 
-            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednia wygrana: '+(scoreR*9)+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+(scoreR*9)+'</p>';
         }
         //przegrana
         else
@@ -424,7 +430,7 @@ function SprawdzR(color)
             //wypisanie
             document.getElementById("score0").innerHTML = score;
 
-            document.getElementById("nav").innerHTML = '<button onclick="Ruletka()" id="ruletka">Ruletka</button> <br> <p id="rwygrana">Poprzednio przegrano: '+scoreR+'</p>';            
+            document.getElementById("nav").innerHTML = '<p id="rporazka">Poprzednio przegrano: '+scoreR+'</p>';            
         }  
     }
     //nie wystarczająco punktów
@@ -437,4 +443,18 @@ function SprawdzR(color)
     {
         alert("Wpisz liczbę punktów");
     }
+}
+
+//Liczy ile średnio (z klikaniem i maszynami) zdobya się w ciągu 1s
+function ileSrednioNaS()
+{
+    //liczy średnio
+    ileNaS = score - ilePrzed;
+    ilePrzed = score;
+
+    //wypisuje
+    document.getElementById('iledodaje').innerHTML = ileNaS+"/1s";
+
+    //wznawia od początku co 1s
+    setTimeout("ileSrednioNaS()",1000);
 }
