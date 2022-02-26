@@ -399,28 +399,28 @@ function SprawdzR(color)
             //dodanie punktów
             AddScore(scoreR);
 
-            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+scoreR+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Wygrano: '+scoreR+'</p>';
         }
         else if (colorN <= 70 && colorN > 40 && color==2)
         {
             //dodanie punktów
             AddScore(2*scoreR);
 
-            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+(scoreR*2)+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Wygrano: '+(scoreR*2)+'</p>';
         }
         else if (colorN <= 90 && colorN > 70  && color==3)
         {
             //dodanie punktów
             AddScore(4*scoreR);
 
-            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+(scoreR*4)+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Wygrano: '+(scoreR*4)+'</p>';
         }
         else if (colorN <= 100 && colorN > 90  && color==4)
         {
             //dodanie punktów
             AddScore(9*scoreR);
 
-            document.getElementById("nav").innerHTML = '<p id="rwygrana">Poprzednia wygrana: '+(scoreR*9)+'</p>';
+            document.getElementById("nav").innerHTML = '<p id="rwygrana">Wygrano: '+(scoreR*9)+'</p>';
         }
         //przegrana
         else
@@ -430,7 +430,7 @@ function SprawdzR(color)
             //wypisanie
             document.getElementById("score0").innerHTML = score;
 
-            document.getElementById("nav").innerHTML = '<p id="rporazka">Poprzednio przegrano: '+scoreR+'</p>';            
+            document.getElementById("nav").innerHTML = '<p id="rporazka">Przegrano: '+scoreR+'</p>';            
         }  
     }
     //nie wystarczająco punktów
