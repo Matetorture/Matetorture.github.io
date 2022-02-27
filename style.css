@@ -1,11 +1,12 @@
 body
 {
-    background-color: #1f1f1f;
+    background-color: #303030;
     color: #d8d8d8;
-    font-size: 48px;
+    font-size: 80px;
     font-family: 'Courier Prime', monospace;
     text-align: center;
     cursor: none;
+    margin: 0;
 }
 
 /*Cursor*/
@@ -27,6 +28,7 @@ body
     margin: auto;
     width: 80%;
     border: 4px dotted #ffffff;
+    border-top: 0;
 }
 
 #musclicker
@@ -34,13 +36,98 @@ body
     color: #000000;
     text-decoration: none;
     cursor: none;
-    
+    text-shadow: 2px 2px 5px #d8d8d8;
 }
 
 img
 {
-    margin-top: 10px;
+    margin-top: 40px;
+    border: 2px dotted #d8d8d8;
+    border-radius: 30%;
+    padding: 10px;
 }
+
+
+/*-------Linki--------*/
+/*link*/
+a:link
+{
+	color:#ffffff;
+	text-decoration:none;
+}
+/*odwiedzony*/
+a:visited
+{
+	color:#ffffff;
+	text-decoration:none;
+}
+/*po najechaniu*/
+a:hover
+{
+	color:#ffffff;
+	text-decoration:none;
+}
+
+nav
+{
+	width:100%;
+	padding:30px 0;
+	background-color:#0886a1;
+	text-align:center;
+	border-top:1px solid #064d5c;
+	border-bottom:1px solid #064d5c;
+    position: sticky;
+    top: 0;
+    padding: 0;
+}
+
+/*Lista (navigacja)*/
+ol
+{
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	font-size:30px;
+	height:20px;
+	line-height:200%;
+	display:inline-block;
+    margin-top: -20px;
+    height: 40px;
+}
+
+ol a
+{
+	color:#ffffff !important;
+	text-decoration:none;
+	display:block;
+    cursor: none;
+}
+
+ol > li
+{
+	float:left;
+	width:300px;
+	height:50px;
+	border-right:1px dashed #003945;
+}
+
+ol > li:first-child
+{
+	border-left:1px dashed #003945;
+}
+
+ol > li:hover
+{
+	background-color:#007a92;
+}
+
+
+
+
+
+
+
+
 
 
 
