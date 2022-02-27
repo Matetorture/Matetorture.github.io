@@ -28,6 +28,7 @@ var ileNaS = 0;
 
 
 
+
 //Ładowanie
 window.onload = loading;
 function loading()
@@ -58,6 +59,7 @@ function loading()
 
     ifShop()
     ileSrednioNaS()
+    CzyStac()
 }
 
 
@@ -363,7 +365,7 @@ function ifShop()
         }
 
         //Wyłączenie możliwości kupna 3
-        document.getElementById("shop3buyD").innerHTML = '<div id="shop3buy"></div><div id="upgrade3"></div><div id="shop3"></div><div id="shop3C"></div><p id="mustext">MAX</p>';
+        document.getElementById("shop3buyD").innerHTML = '<div id="shop3buy"></div><div id="upgrade"></div><div id="shop3"></div><div id="shop3C"></div><p id="mustext">MAX</p>';
     }
 
     //Działanie Sklepu 4
@@ -436,12 +438,12 @@ function SprawdzR(color)
     //nie wystarczająco punktów
     else if (score<scoreR)
     {
-        alert("Nie masz tyle punktów");
+        alert(" - Nie masz tyle punktów - ");
     }
     //nie wpisano liczby
     else
     {
-        alert("Wpisz liczbę punktów");
+        alert(" - Wpisz liczbę punktów - ");
     }
 }
 
