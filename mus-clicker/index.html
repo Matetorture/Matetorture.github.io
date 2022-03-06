@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUS</title>
+    <meta name="description" content="Author: Przemysław P., Clicker about MUS">
 
     <!--CSS-->
     <link rel="stylesheet" href="style.css">
-    <!--Script clikera-->
-    <script src="clicker.js"></script>
+    
     <!--Ikona-->
     <link rel="shortcut icon" href="MUS.ico" type="image/x-icon">
-
+    
     <!--Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
 
 </head>
 <body>
-    <div id="undo" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><a href="../index.html"><img src="undo.png" alt=""></a></div>
+    <div id="undo" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><a href="../index.html"><img src="undo.png" alt="" width="48px" height="48px"></a></div>
 
             <!--Ruletka-->
             <div id="ruletka">Ruletka</div>
@@ -32,21 +32,17 @@
             <input type="text" id="pole" placeholder="Ile obstawiasz?" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
 
             <!--Szary-->
-            <input type="submit" id="r1" value="Szary" onclick="SprawdzR(1)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
+            <input type="submit" id="r1" class="r" value="Szary" onclick="SprawdzR(1)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
             <!--Czerwony-->
-            <input type="submit" id="r2" value="Czerwony" onclick="SprawdzR(2)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
+            <input type="submit" id="r2" class="r" value="Czerwony" onclick="SprawdzR(2)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
             <!--Niebieski-->
-            <input type="submit" id="r3" value="Niebieski" onclick="SprawdzR(3)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
+            <input type="submit" id="r3" class="r" value="Niebieski" onclick="SprawdzR(3)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
             <!--Złoty-->
-            <input type="submit" id="r4" value="Złoty" onclick="SprawdzR(4)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
-
-    <nav id="nav">       
-
-    </nav>
+            <input type="submit" id="r4" class="r" value="Złoty" onclick="SprawdzR(4)" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
 
     <!--Pole gry-->
-    <div id="game">
-        <div id="1" style="float: left;">
+    <main>
+        <div style="float: left;">
 
             <!--Pole z musami-->
             <div id="musD" onmouseover="OnMouse()" onmouseout="NoOnMouse()">
@@ -58,18 +54,18 @@
         </div>
 
         <!--Sklepy-->
-        <div id="shop" style="float: left;">
+        <div id="shop">
             <span id="score0">0</span> <br>
 
             <!--Sklep 1-->
             <h1>--- Mały sklepik ---</h1>
             <div id="shop1buyD">
-                <button onclick="Buy1()" id="shop1buy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade1">UPGRADE</p></button>
+                <button onclick="Buy1()" id="shop1buy" class="shopbuy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade1">UPGRADE</p></button>
             
-                <span id="shop1"></span>
+                <span id="shop1" class="shopA"></span>
                 <br>
 
-                <span id="shop1C"></span>
+                <span id="shop1C" class="shopC"></span>
                 <br>
             </div>
             
@@ -78,42 +74,42 @@
             <!--Sklep 2-->
             <h1>--- Supermarket ---</h1>
             <div id="shop2buyD">
-                <button onclick="Buy2()" id="shop2buy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade2">UPGRADE</p></button>
+                <button onclick="Buy2()" id="shop2buy" class="shopbuy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade2">UPGRADE</p></button>
             
-                <span id="shop2"></span>
+                <span id="shop2" class="shopA"></span>
                 <br>
 
-                <span id="shop2C"></span>
+                <span id="shop2C" class="shopC"></span>
                 <br>
             </div>
 
             <!--Sklep 3-->
             <h1>--- Fabryka ---</h1>
             <div id="shop3buyD">
-                <button onclick="Buy3()" id="shop3buy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade3">UPGRADE</p></button>
+                <button onclick="Buy3()" id="shop3buy" class="shopbuy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade3">UPGRADE</p></button>
             
-                <span id="shop3"></span>
+                <span id="shop3" class="shopA"></span>
                 <br>
 
-                <span id="shop3C"></span>
+                <span id="shop3C" class="shopC"></span>
                 <br>
             </div>
 
             <!--Sklep 4-->
             <h1>--- Transport ---</h1>
             <div id="shop4buyD">
-                <button onclick="Buy4()" id="shop4buy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade4">UPGRADE</p></button>
+                <button onclick="Buy4()" id="shop4buy" class="shopbuy" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><p id="upgrade4">UPGRADE</p></button>
             
-                <span id="shop4"></span>
+                <span id="shop4" class="shopA"></span>
                 <br>
 
-                <span id="shop4C"></span>
+                <span id="shop4C" class="shopC"></span>
                 <br>
             </div>
 
         </div>
         <!--Koniec Sklepów-->
-    </div>
+    </main>
     <!--Koniec pola gry-->
 
 
@@ -126,15 +122,22 @@
         <span id="lvlDe"><p>MUS</p></span>
     </div>
 
+    
+    
     <!--Link do pomocy-->
-    <a href="pomoc.html" target="_blank" id="pomoc-l" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><img src="POMOC.png" alt=""></a>
+    <a href="pomoc.html" target="_blank" id="pomoc-l" onmouseover="OnMouse()" onmouseout="NoOnMouse()"><img src="POMOC.png" alt="" width="48px" height="48px"></a>
 
     <!--div z kursorem-->
     <div class="cursor" id="cursor"></div>
 
-</body>
+
+    <!--Script clikera-->
+    <script src="clicker.js"></script>
 
     <!--script do kursora-->
     <script src="cursor.js"></script>
+
+
+</body>
 
 </html>

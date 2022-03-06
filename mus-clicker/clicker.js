@@ -111,10 +111,12 @@ function Buy1()
         document.getElementById("score0").innerHTML = score;
         document.getElementById("shop1C").innerHTML = shop1C;
 
+    
+        
     }
     if (shop1==10) 
     {
-        document.getElementById("shop1buyD").innerHTML = '<div id="shop1buy"></div><div id="upgrade1"></div><div id="shop1"></div><div id="shop1C"></div><p id="mustext">MAX</p>';
+            document.getElementById("shop1buyD").innerHTML = '<div  class="shopbuy"></div><div id="upgrade1"></div><div id="shop1"></div><div id="shop1C"></div><p id="mustext">MAX</p>';
     }
 }
 
@@ -140,7 +142,7 @@ function Buy2()
     }
     if (shop2==10) 
     {
-        document.getElementById("shop2buyD").innerHTML = '<div id="shop2buy"></div><div id="upgrade2"></div><div id="shop2"></div><div id="shop2C"></div><p id="mustext">MAX</p>';
+        document.getElementById("shop2buyD").innerHTML = '<div class="shopbuy"></div><div id="upgrade2"></div><div id="shop2"></div><div id="shop2C"></div><p id="mustext">MAX</p>';
     }
 }
 
@@ -166,7 +168,7 @@ function Buy3()
     }
     if (shop3==10) 
     {
-        document.getElementById("shop3buyD").innerHTML = '<div id="shop3buy"></div><div id="upgrade3"></div><div id="shop3"></div><div id="shop3C"></div><p id="mustext">MAX</p>';
+        document.getElementById("shop3buyD").innerHTML = '<div class="shopbuy"></div><div id="upgrade3"></div><div id="shop3"></div><div id="shop3C"></div><p id="mustext">MAX</p>';
     }
 }
 
@@ -192,7 +194,7 @@ function Buy4()
     }
     if (shop4==5) 
     {
-        document.getElementById("shop4buyD").innerHTML = '<div id="shop4buy"></div><div id="upgrade4"></div><div id="shop4"></div><div id="shop4C"></div><p id="mustext">MAX</p>';
+        document.getElementById("shop4buyD").innerHTML = '<div class="shopbuy"></div><div id="upgrade4"></div><div id="shop4"></div><div id="shop4C"></div><p id="mustext">MAX</p>';
     }
 }
 
@@ -229,12 +231,7 @@ function ifShop()
     if (shop1==7) {AddScore(96);}
     if (shop1==8) {AddScore(128);}
     if (shop1==9) {AddScore(256);}
-    if (shop1==10) 
-    {
-        AddScore(512);
-        //Wyłączenie możliwości kupna 1
-        document.getElementById("shop1buyD").innerHTML = '<div id="shop1buy"></div><div id="upgrade1"></div><div id="shop1"></div><div id="shop1C"></div><p id="mustext">MAX</p>';
-    }
+    if (shop1==10) {AddScore(512);}
 
     //Działanie Sklepu 2
     if (shop2==1) {AddScore(64);}
@@ -246,12 +243,7 @@ function ifShop()
     if (shop2==7) {AddScore(896);}
     if (shop2==8) {AddScore(1024);}
     if (shop2==9) {AddScore(2048);}
-    if (shop2==10) 
-    {
-        AddScore(3072);
-        //Wyłączenie możliwości kupna 2
-        document.getElementById("shop2buyD").innerHTML = '<div id="shop2buy"></div><div id="upgrade2"></div><div id="shop2"></div><div id="shop2C"></div><p id="mustext">MAX</p>';
-    }
+    if (shop2==10) {AddScore(3072);}
 
     //Działanie Sklepu 3
     if (shop3==1) 
@@ -363,9 +355,6 @@ function ifShop()
         {
             document.getElementById("musD").innerHTML = '<button onclick="AddScore(50)" id="mus"><img src="'+lvl+'.png" width="100%" height="100%" alt=""></button>';
         }
-
-        //Wyłączenie możliwości kupna 3
-        document.getElementById("shop3buyD").innerHTML = '<div id="shop3buy"></div><div id="upgrade"></div><div id="shop3"></div><div id="shop3C"></div><p id="mustext">MAX</p>';
     }
 
     //Działanie Sklepu 4
@@ -373,12 +362,7 @@ function ifShop()
     if (shop4==2) {xp2=3;}
     if (shop4==3) {xp2=5;}
     if (shop4==4) {xp2=7;}
-    if (shop4==5)
-    {
-        {xp2=10;}
-        //Wyłączenie możliwości kupna 4
-        document.getElementById("shop4buyD").innerHTML = '<div id="shop4buy"></div><div id="upgrade4"></div><div id="shop4"></div><div id="shop4C"></div><p id="mustext">MAX</p>';
-    }
+    if (shop4==5) {xp2=10;}
 
     //Znowu działanie po 1s sklepów
     setTimeout("ifShop()",1000);
@@ -459,4 +443,60 @@ function ileSrednioNaS()
 
     //wznawia od początku co 1s
     setTimeout("ileSrednioNaS()",1000);
+}
+
+
+
+//Czy stać cię na upgrade
+function CzyStac()
+{
+    //Upgrade 1
+    if (score < shop1C)
+    {
+        document.getElementById("shop1").style.color = "#ff0000";
+        document.getElementById("upgrade1").style.color = "#ff0000";
+    }
+    else
+    {
+        document.getElementById("shop1").style.color = "#adff2f";
+        document.getElementById("upgrade1").style.color = "#adff2f";
+    }
+    //Upgrade 2
+    if (score < shop2C)
+    {
+        document.getElementById("shop2").style.color = "#ff0000";
+        document.getElementById("upgrade2").style.color = "#ff0000";
+    }
+    else
+    {
+        document.getElementById("shop2").style.color = "#adff2f";
+        document.getElementById("upgrade2").style.color = "#adff2f";
+    }
+    //Upgrade 3
+    if (score < shop3C)
+    {
+        document.getElementById("shop3").style.color = "#ff0000";
+        document.getElementById("upgrade3").style.color = "#ff0000";
+    }
+    else
+    {
+        document.getElementById("shop3").style.color = "#adff2f";
+        document.getElementById("upgrade3").style.color = "#adff2f";
+    }
+    //Upgrade 4
+    if (score < shop4C)
+    {
+        document.getElementById("shop4").style.color = "#ff0000";
+        document.getElementById("upgrade4").style.color = "#ff0000";
+    }
+    else
+    {
+        document.getElementById("shop4").style.color = "#adff2f";
+        document.getElementById("upgrade4").style.color = "#adff2f";
+    }
+
+
+
+    //Powtórzenie
+    setTimeout("CzyStac()", 100);
 }

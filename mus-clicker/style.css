@@ -53,7 +53,7 @@ h1
 
 
 /* Pole gry */
-#game
+main
 {
     margin: auto;
     padding-top: 20px;
@@ -79,103 +79,17 @@ h1
 {
     width: 440px;
     padding: 30px;
+    float: left;
 }
-
-/* Skelp 1 */
-#shop1
+.shopA
 {
     color: #ff0000;
 }
-#shop1C
+.shopC
 {
     color: #ffff00;
 }
-#shop1buy
-{
-    background-color: #000000;
-    border: none;
-    margin: auto;
-    cursor: none;
-    font-size: 40px;
-    color: #ff0000;
-}
-
-
-
-
-/* Skelp 2 */
-#shop2
-{
-    color: #ff0000;
-}
-#shop2C
-{
-    color: #ffff00;
-}
-#shop2buy
-{
-    background-color: #000000;
-    border: none;
-    margin: auto;
-    cursor: none;
-    font-size: 40px;
-    color: #ff0000;
-}
-
-
-
-/* Skelp 3 */
-#shop3
-{
-    color: #ff0000;
-}
-#shop3C
-{
-    color: #ffff00;
-}
-#shop3buy
-{
-    background-color: #000000;
-    border: none;
-    margin: auto;
-    cursor: none;
-    font-size: 40px;
-    color: #ff0000;
-}
-
-
-
-/* Skelp 4 */
-#shop4
-{
-    color: #ff0000;
-}
-#shop4C
-{
-    color: #ffff00;
-}
-#shop4buy
-{
-    background-color: #000000;
-    border: none;
-    margin: auto;
-    cursor: none;
-    font-size: 40px;
-    color: #ff0000;
-}
-
-
-
-/* Skelp 5 */
-#shop5
-{
-    color: #ff0000;
-}
-#shop5C
-{
-    color: #ffff00;
-}
-#shop5buy
+.shopbuy
 {
     background-color: #000000;
     border: none;
@@ -223,45 +137,34 @@ h1
     animation-iteration-count: infinite;
 }
 
-#r1
+.r
 {
     border: none;
     cursor: none;
-    background-color: #808080;
     margin: 10px;
     font-size: 30px;
     border-radius: 10px;
+}
+
+#r1
+{
+    background-color: #808080;
 }
 
 #r2
 {
-    border: none;
-    cursor: none;
     background-color: #ff0000;
-    margin: 10px;
-    font-size: 30px;
-    border-radius: 10px;
 }
 
 #r3
 {
-    border: none;
-    cursor: none;
     background-color: #0000ff;
-    margin: 10px;
-    font-size: 30px;
-    border-radius: 10px;
     color: #d3d3d3;
 }
 
 #r4
 {
-    border: none;
-    cursor: none;
     background-color: #ffd700;
-    margin: 10px;
-    font-size: 30px;
-    border-radius: 10px;
 }
 
 #pole
@@ -403,10 +306,12 @@ html
 html::-webkit-scrollbar
 {
     width: 2vh;
+    height: 2vh;
 }
 html::-webkit-scrollbar-thumb
 {
     background-color: #777777;
+    border-radius: 5px;
 }
 html::-webkit-scrollbar-thumb:hover
 {
