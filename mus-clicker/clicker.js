@@ -250,7 +250,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(2)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(2)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -261,7 +261,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(3)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(3)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -272,7 +272,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(5)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(5)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -283,7 +283,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(7)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(7)" id="mus"><img 5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -294,7 +294,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(10)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(10)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -305,7 +305,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(15)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(15)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -316,7 +316,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(20)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(20)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -327,7 +327,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(25)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(25)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -338,7 +338,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(35)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(35)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
@@ -349,7 +349,7 @@ function ifShop()
     {
         if (lvl>=6)
         {
-            document.getElementById("musD").innerHTML = '<button onclick="AddScore(50)" id="mus"><img src="6.png" width="100%" height="100%" alt=""></button>';
+            document.getElementById("musD").innerHTML = '<button onclick="AddScore(50)" id="mus"><img src="5.png" width="100%" height="100%" alt=""></button>';
         }
         else
         {
