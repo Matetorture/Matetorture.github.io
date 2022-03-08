@@ -1,0 +1,173 @@
+body
+{
+    background-color: #3d3d3d;
+    color: #d8d8d8;
+    font-size: 30px;
+    font-family: 'Courier Prime', monospace;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.swiper
+{
+    color: #3d3d3d;
+    width: 700px;
+    height: 400px;
+}
+.swiper-slide
+{
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*link*/
+a:link
+{
+	color: #007aff;
+	text-decoration:none;
+}
+/*odwiedzony*/
+a:visited
+{
+	color: #007aff;
+	text-decoration:none;
+}
+/*po najechaniu*/
+a:hover
+{
+	color: #007aff;
+	text-decoration: none;
+    font-weight: bold;
+}
+
+#undo
+{
+    float: left;
+    margin: 20px;
+    margin-top: 0;
+    padding: 10px;
+    border: 3px solid #ffffff;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+}
+
+nav
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding-top: 10px;
+}
+
+#rnav
+{
+    float: right;
+}
+
+#rnav > div
+{
+    display: contents;
+}
+
+#menu
+{
+    margin: 20px;
+    margin-top: 0;
+    padding: 10px;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+@keyframes menuA
+{
+    from {}
+    to {transform: rotate(180deg);}
+}
+
+/* todo obracanie */
+#menu:hover
+{
+    animation: menuA 0.2s linear;
+    /* animation-delay: 0.2s; */
+}
+
+#shop
+{
+    margin: 20px;
+    margin-top: 0;
+    padding: 10px;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+}
+
+
+ul > li
+{
+    list-style-type:none;
+    font-size: 36px;
+}
+
+ul
+{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    display:none;
+    position: fixed;
+}
+
+@keyframes ListaA
+{
+    from {opacity: 0;}
+    20% {opacity: 0.5;}
+    to {opacity: 1;}
+}
+
+div:hover > ul
+{
+    display:block;
+    animation: ListaA 1s linear;
+}
+ 
+ul > li
+{
+    width: 270px;
+    text-align: left;
+    position: relative;
+}
+
+li > a > img
+{
+    display: block;
+    float: left;
+}
+
+
+
+p
+{
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 40px;
+}
+
+main > div 
+{
+    text-align: center;
+}
+main > div > img
+{
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 40px;
+    margin: auto;
+}

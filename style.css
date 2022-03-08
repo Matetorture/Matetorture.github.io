@@ -39,12 +39,28 @@ nav
     text-shadow: 2px 2px 5px #d8d8d8;
 }
 
+#normal-web
+{
+    color: #007aff;
+    text-decoration: none;
+    cursor: none;
+}
+
 img
 {
     margin-top: 40px;
-    border: 2px dotted #d8d8d8;
     border-radius: 30%;
     padding: 10px;
+}
+
+#musclicker > img
+{
+    border: 2px dotted #d8d8d8;
+}
+
+#normal-web > img
+{
+    border: 4px solid #007aff;
 }
 
 
