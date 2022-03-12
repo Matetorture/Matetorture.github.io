@@ -5,7 +5,6 @@ body
     font-size: 30px;
     font-family: 'Courier Prime', monospace;
     margin: 0;
-    margin-top: 20px;
 }
 
 .swiper
@@ -13,6 +12,7 @@ body
     color: #3d3d3d;
     width: 700px;
     height: 400px;
+    position: absolute;
 }
 .swiper-slide
 {
@@ -59,7 +59,7 @@ nav
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 #rnav
@@ -90,11 +90,11 @@ nav
 }
 
 /* todo obracanie */
-#menu:hover
+/* #menu:hover
 {
     animation: menuA 0.2s linear;
-    /* animation-delay: 0.2s; */
-}
+    animation-delay: 0.2s;
+} */
 
 #shop
 {
@@ -119,7 +119,7 @@ ul
     padding:0;
     margin:0;
     display:none;
-    position: fixed;
+    position: absolute;
 }
 
 @keyframes ListaA
@@ -131,8 +131,8 @@ ul
 
 div:hover > ul
 {
-    display:block;
-    animation: ListaA 1s linear;
+    display: block;
+    animation: ListaA 1.5s linear;
 }
  
 ul > li
