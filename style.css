@@ -39,9 +39,16 @@ nav
     text-shadow: 2px 2px 5px #d8d8d8;
 }
 
-#normal-web
+#web
 {
     color: #007aff;
+    text-decoration: none;
+    cursor: none;
+}
+
+#web2
+{
+    color: #68e8ff;
     text-decoration: none;
     cursor: none;
 }
@@ -66,10 +73,16 @@ img
     border: 2px dotted #d8d8d8;
 }
 
-#normal-web > img
+#web > img
 {
     border: 4px solid #007aff;
 }
+
+#web2 > img
+{
+    border: 4px solid #68e8ff;
+}
+
 
 #formularz > img
 {

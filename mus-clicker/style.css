@@ -1,6 +1,10 @@
+:root
+{
+    --bg-color: #131313;
+}
 body
 {
-    background-color: #131313;
+    background-color: var(--bg-color);
     color: #d3d3d3;
     font-size: 48px;
     font-family: 'Courier Prime', monospace;
@@ -66,7 +70,7 @@ main
 /* Pole z musami */
 #mus
 {
-    background-color: #131313;
+    background-color: var(--bg-color);
     border: none;
     width: 500px;
     margin: auto;
@@ -91,7 +95,7 @@ main
 }
 .shopbuy
 {
-    background-color: #131313;
+    background-color: var(--bg-color);
     border: none;
     margin: auto;
     cursor: none;
@@ -129,7 +133,7 @@ main
 /*Ruletka*/
 #ruletka
 {
-    background-color: #131313;
+    background-color: var(--bg-color);
     margin: auto;
     font-size: 60px;
     animation-name: animacja1;
@@ -169,7 +173,7 @@ main
 
 #pole
 {
-    background-color: #131313;
+    background-color: var(--bg-color);
     border: none;
     margin: auto;
     margin-top: 0px;
