@@ -26,12 +26,14 @@
                 <th>Custom</th>
             </tr>
 
+            <!-- wyświetlanie w tabeli -->
             <?php
                 while($row = $result->fetch_assoc())
                 {
             ?>
             
             <tr>
+                <!-- wyświetlanie id -->
                 <td>
                 <?php
                     echo $row['id']
@@ -39,17 +41,20 @@
             </td>
 
             <td>
+                <!-- wyświetlanie minimum -->
                 <?php
                     echo $row['min']
                 ?>
             </td>
 
             <td>
+                <!-- wyświetlanie standard -->
                 <?php
                     echo $row['standard']
                 ?>
             </td>
             <td>
+                <!-- wyświetlanie custom -->
                 <?php
                     echo $row['custom']
                 ?>

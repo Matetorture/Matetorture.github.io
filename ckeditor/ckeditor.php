@@ -1,5 +1,6 @@
 <?php
 
+    // połączenie do bazy danych
    $servername = "localhost";
    $username = "root";
    $password = "";
@@ -12,7 +13,7 @@
        die("Connection failed: ".$conn->conect_error);
    }
 
-
+    // wkładanie do tabeli
    if ($_SERVER["REQUEST_METHOD"] == "POST")
    {
        $min = $_POST['min'];
