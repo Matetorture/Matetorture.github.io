@@ -106,6 +106,8 @@ const loop = function () {
     context.fillStyle = "#131313";
     context.fillRect(0, 0, widthMap, heightMap); 
 
+    //Rysuje lewel
+    drawLevel();
 
     // Cube for each frame
     context.fillStyle = "#fff487";
@@ -122,8 +124,6 @@ const loop = function () {
     context.lineTo(widthMap, heightMap - 15);
     context.stroke();
 
-    //Rysuje lewel
-    drawLevel();
 
     // console.log('x: '+square.x+' y:'+square.y);
 
@@ -158,9 +158,10 @@ function drawLevel()
         Colision();
     }
     // lava 1
-    else if (square.y > heightMap - 260 - 49 && square.y < heightMap - 260 - 40 && square.x < widthMap - 650 && square.x > widthMap - 1550 - 22 ) 
+    else if (square.y > heightMap - 260 - 69 && square.y < heightMap - 220 - 20 && square.x < widthMap - 650 && square.x > widthMap - 1550 - 22 ) 
     {
         Dead();
+        Colision();
     }
     //belka 4
     else if (square.y > heightMap - 325 - 49 && square.y < heightMap - 325 - 40 && square.x < widthMap - 700 && square.x > widthMap - 750 - 22 ) 
