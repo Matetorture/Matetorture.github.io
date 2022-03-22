@@ -98,9 +98,9 @@ const loop = function () {
 
     // ! Boki
     // Lewy
-    if (square.x < -20) { square.x = -15; } 
+    if (square.x < 0) { square.x = 0; } 
     // Prawy
-    else if (square.x > widthMap - 15) { square.x = widthMap - 20; }
+    else if (square.x > widthMap - square.width) { square.x = widthMap - square.width; }
 
     // back for each frame
     context.fillStyle = "#131313";
