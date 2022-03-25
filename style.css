@@ -31,6 +31,13 @@ nav
     border-top: 0;
 }
 
+#carkur
+{
+    color: #FFA500;
+    text-decoration: none;
+    cursor: none;
+}
+
 #musclicker
 {
     color: #000000;
@@ -66,6 +73,11 @@ img
     margin-top: 40px;
     border-radius: 30%;
     padding: 10px;
+}
+
+#carkur > img
+{
+    border: 2px solid #FFA500;
 }
 
 #musclicker > img

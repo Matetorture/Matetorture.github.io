@@ -18,4 +18,20 @@ body
     display:grid;
     justify-content:center;
 }
-  
+
+label
+{
+    margin: 5px;
+    width: 100%;
+}
+
+button
+{
+    width: 33%;
+    margin: auto;
+}
+
+.dialog-win
+{
+    text-align: center;
+}

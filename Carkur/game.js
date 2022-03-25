@@ -2,12 +2,21 @@ const context = document.querySelector("canvas").getContext("2d");
 
 var heightMap = 800;
 var widthMap = 1620;
-var gravity = 0.5;
 
+var gravity = 0.5;
 var gravity2 = gravity;
+var gravityTF = true;
+
+var jumpHeight2 = 20;
+var jumpHeight = 20;
+
+var speed = 0.9;
+var speed2 = speed;
 
 context.canvas.height = heightMap;
 context.canvas.width = widthMap;
+
+var level = 1;
 
 const square = 
 {
@@ -62,15 +71,19 @@ const controller =
         break;
     }
   }
-};
+}
 
-const loop = function () {
+const loop = function () 
+{
 
     // działanie klawisza skoku
     if (controller.up && square.jumping == false) 
     {
-        square.yVelocity -= 20;
+        square.yVelocity -= jumpHeight2;
         square.jumping = true;
+
+        //niwelacja odbiajczy
+        jumpHeight2 = jumpHeight;
     }
 
     // działanie klawisza w lewo
@@ -79,16 +92,15 @@ const loop = function () {
     if (controller.right) { square.xVelocity += 0.5; }
 
     // gravity
-    square.yVelocity += gravity;
+    square.yVelocity += gravity2;
     square.x += square.xVelocity;
     square.y += square.yVelocity;
     
-    // ślizg
-    square.xVelocity *= 0.9;
-    // square.xVelocity *= 0.5;
+    // szybkość
+    square.xVelocity *= speed2;
     square.yVelocity *= 0.9;
 
-    // Ground Teren
+    // Ground
     if (square.y > heightMap - 14 - 16 - 32) 
     {
         square.jumping = false;
@@ -96,27 +108,27 @@ const loop = function () {
         square.yVelocity = 0;
     }
 
-    // ! Boki
-    // Lewy
+    // ! Site
+    // Left
     if (square.x < 0) { square.x = 0; } 
-    // Prawy
+    // Right
     else if (square.x > widthMap - square.width) { square.x = widthMap - square.width; }
 
-    // back for each frame
+    // background drawing
     context.fillStyle = "#131313";
     context.fillRect(0, 0, widthMap, heightMap); 
 
     //Rysuje lewel
-    drawLevel();
+    drawingLevel();
 
-    // Cube for each frame
+    // Cube drawing
     context.fillStyle = "#fff487";
     context.beginPath();
     context.rect(square.x, square.y, square.width, square.height);
     context.fill();
 
 
-    // ground for each frame
+    // ground drawing
     context.strokeStyle = "#444444";
     context.lineWidth = 30;
     context.beginPath();
@@ -124,174 +136,133 @@ const loop = function () {
     context.lineTo(widthMap, heightMap - 15);
     context.stroke();
 
-
-    // console.log('x: '+square.x+' y:'+square.y);
-
-    // call update when the browser is ready to draw again
+    // update draw again
     window.requestAnimationFrame(loop);
-};
+}
 
 window.addEventListener("keydown", controller.keyListener)
 window.addEventListener("keyup", controller.keyListener);
 window.requestAnimationFrame(loop);
 
-function drawLevel()
+function drawingLevel()
 {
-    // if (square.y > heightMap - y - 49 && square.y < heightMap - y - 40 && square.x < widthMap - x && square.x > widthMap - x - 22 ) 
-    // {
-    //     Colision();
-    // }
-
-    //belka 1
-    if (square.y > heightMap - 100 - 49 && square.y < heightMap - 100 - 40 && square.x < widthMap - 400 && square.x > widthMap - 600 - 22 ) 
+    //level 1
+    if (level==1)
     {
-        Colision();
+        //belka 1
+        createColisionAndDrawing(100, 1220, 1020, "#444444", 30, "Colision();", 0, 0);
+        //belka 2
+        createColisionAndDrawing(180, 1570, 1370, "#444444", 30, "Colision();", 0, 0);
+        //belka 3
+        createColisionAndDrawing(250, 1270, 1070, "#444444", 30, "Colision();", 0, 0);
+        //lava 1
+        createColisionAndDrawing(260, 970, 70, "#a70000", 70, "Dead();", 20, 70);
+        //belka 4
+        createColisionAndDrawing(325, 920, 870, "#444444", 30, "Colision();", 0, 0);
+        //belka 5    
+        createColisionAndDrawing(350, 750, 700, "#444444", 30, "Colision();", 0, 0);
+        //belka 6    
+        createColisionAndDrawing(450, 620, 570, "#444444", 30, "Colision();", 0, 0);
+        //belka 7
+        createColisionAndDrawing(520, 430, 380, "#444444", 30, "Colision();", 0, 0);
+        //belka 8
+        createColisionAndDrawing(600, 220, 20, "#444444", 30, "Colision();", 0, 0);
+        //END
+        createColisionAndDrawing(655, 120, 70, "#ffdc09", 80, "Win()", 20, 80);
     }
-    //belka 2
-    else if (square.y > heightMap - 180 - 49 && square.y < heightMap - 180 - 40 && square.x < widthMap - 50 && square.x > widthMap - 250 - 22) 
+    //level 1
+    if (level==2)
     {
-        Colision();
+        //belka 1
+        createColisionAndDrawing(100, 220, 170, "#444444", 30, "Colision();", 0, 0);
+        //belka 2
+        createColisionAndDrawing(150, 445, 395, "#444444", 30, "Colision();", 0, 0);
+        //belka 3
+        createColisionAndDrawing(150, 620, 570, "#444444", 30, "Colision();", 0, 0);
+        //jump pad 1
+        createColisionAndDrawing(225, 920, 720, "#006abc", 30, "JumpPad();", 0, 0);
+        //belka 4
+        createColisionAndDrawing(600, 1120, 970, "#444444", 30, "Colision();", 0, 0);
+        //speed 1
+        createColisionAndDrawing(600, 1420, 1120, "#FFA500", 30, "Speed();", 0, 0);
+        //belka 5
+        createColisionAndDrawing(600, 1570, 1420, "#444444", 30, "Colision();", 0, 0);
+        //belka 6
+        createColisionAndDrawing(400, 1620, 1520, "#444444", 30, "Colision();", 0, 0);
+        //belka 7
+        createColisionAndDrawing(250, 1420, 1220, "#444444", 30, "Colision();", 0, 0);
+        //END
+        createColisionAndDrawing(305, 1370, 1320, "#ffdc09", 80, "Win()", 20, 80);
     }
-    //belka 3
-    else if (square.y > heightMap - 250 - 49 && square.y < heightMap - 250 - 40 && square.x < widthMap - 350 && square.x > widthMap - 550 - 22 ) 
-    {
-        Colision();
-    }
-    // lava 1
-    else if (square.y > heightMap - 260 - 69 && square.y < heightMap - 220 - 20 && square.x < widthMap - 650 && square.x > widthMap - 1550 - 22 ) 
-    {
-        Dead();
-        Colision();
-    }
-    //belka 4
-    else if (square.y > heightMap - 325 - 49 && square.y < heightMap - 325 - 40 && square.x < widthMap - 700 && square.x > widthMap - 750 - 22 ) 
-    {
-        Colision();
-    }
-    //belka 5
-    else if (square.y > heightMap - 350 - 49 && square.y < heightMap - 350 - 40 && square.x < widthMap - 900 && square.x > widthMap - 950 - 22 ) 
-    {
-        Colision();
-    }
-    //belka 6
-    else if (square.y > heightMap - 450 - 49 && square.y < heightMap - 450 - 40 && square.x < widthMap - 1025 && square.x > widthMap - 1075 - 22 ) 
-    {
-        Colision();
-    }
-    //belka 7
-    else if (square.y > heightMap - 500 - 49 && square.y < heightMap - 500 - 40 && square.x < widthMap - 1225 && square.x > widthMap - 1275 - 22 ) 
-    {
-        Colision();
-    }
-    //belka 7
-    else if (square.y > heightMap - 600 - 49 && square.y < heightMap - 600 - 40 && square.x < widthMap - 1400 && square.x > widthMap - 1600 - 22 ) 
-    {
-        Colision();
-    }
-    //END
-    else if (square.y > heightMap - 655 - 49 && square.y < heightMap - 655 - 40 && square.x < widthMap - 1500 && square.x > widthMap - 1550 - 22 ) 
-    {
-        alert('win');
-    }
+    // no colison
+    gravityTF = true;
+}
 
-
-
-
-    //bez belki
-    else
-    {
-        gravity=gravity2;
-    }
-
-    //belka 1 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 400, heightMap - 100);
-    context.lineTo(widthMap - 600, heightMap - 100);
-    context.stroke();
-
-    //belka 2 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 50, heightMap - 180);
-    context.lineTo(widthMap - 250, heightMap - 180);
-    context.stroke();
-
-    //belka 3 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 350, heightMap - 250);
-    context.lineTo(widthMap - 550, heightMap - 250);
-    context.stroke();
-
-    //lava 1 rysunek
-    context.strokeStyle = "#e56520";
-    context.lineWidth = 70;
-    context.beginPath();
-    context.moveTo(widthMap - 650, heightMap - 260);
-    context.lineTo(widthMap - 1550, heightMap - 260);
-    context.stroke();
-
-    //belka 4 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 700, heightMap - 325);
-    context.lineTo(widthMap - 750, heightMap - 325);
-    context.stroke();
-
-    //belka 5 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 900, heightMap - 350);
-    context.lineTo(widthMap - 950, heightMap - 350);
-    context.stroke();
-
-    //belka 6 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 1025, heightMap - 450);
-    context.lineTo(widthMap - 1075, heightMap - 450);
-    context.stroke();
-
-    //belka 7 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 1225, heightMap - 500);
-    context.lineTo(widthMap - 1275, heightMap - 500);
-    context.stroke();
-
-    //belka 8 rysunek
-    context.strokeStyle = "#444444";
-    context.lineWidth = 30;
-    context.beginPath();
-    context.moveTo(widthMap - 1400, heightMap - 600);
-    context.lineTo(widthMap - 1600, heightMap - 600);
-    context.stroke();
-
-    //END
-    context.strokeStyle = "#ffdc09";
-    context.lineWidth = 80;
-    context.beginPath();
-    context.moveTo(widthMap - 1500, heightMap - 655);
-    context.lineTo(widthMap - 1550, heightMap - 655);
-    context.stroke();
-};
 function Colision()
 {
-    gravity=0;
+    gravity2=0;
     square.yVelocity = 0;
     square.jumping = false;
-};
-
+}
+function JumpPad()
+{
+    Colision();
+    jumpHeight2 = 50;
+}
+function Speed()
+{
+    Colision();
+    speed2=0.97;
+}
 function Dead()
 {
     square.y = heightMap - 100;
     square.x = 0;
-};
+}
+function Win()
+{
+    Colision();
+    dialogW.open();
+    level++;
+    square.y = heightMap - 100;
+    square.x = 0;
+    gravity2=gravity;
+}
+
+function createColisionAndDrawing(createY, createX1, createX2, color, lineW, attribute, heightMinus, heightPlus)
+{
+    //if colision
+    if (square.y > heightMap - createY - 50 - heightMinus && square.y < heightMap - createY - 40 + heightPlus && square.x < createX1 && square.x > createX2 - 32) 
+    {
+        eval(attribute);
+        gravityTF = false;
+    }
+    //if no colison
+    if (gravityTF == true)
+    {
+        gravity2=gravity;
+        speed2 = speed;
+    }
+
+    //drawing
+    context.strokeStyle = color;
+    context.lineWidth = lineW;
+    context.beginPath();
+    context.moveTo(createX1, heightMap - createY);
+    context.lineTo(createX2, heightMap - createY);
+    context.stroke();
+}
+
+//game mode
+const mode = document.querySelector('#mode');
+
+mode.addEventListener("submit", (e) =>
+{
+    e.preventDefault();
+
+    level = document.querySelector('#level').value;
+
+    jumpHeight = document.querySelector('#jump').value;
+
+    speed = document.querySelector('#speed').value;
+});
