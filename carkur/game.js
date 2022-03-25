@@ -192,7 +192,7 @@ function drawingLevel()
         //belka 7
         createColisionAndDrawing(250, 1420, 1220, "#444444", 30, "Colision();", 0, 0);
         //END
-        createColisionAndDrawing(305, 1370, 1320, "#ffdc09", 80, "Win()", 20, 80);
+        createColisionAndDrawing(305, 1300, 1250, "#ffdc09", 80, "Win()", 20, 80);
     }
     //level 3
     else if (level==3)
@@ -214,7 +214,7 @@ function drawingLevel()
         //belka 5
         createColisionAndDrawing(300, 1620, 1450, "#444444", 30, "Colision();", 0, 0);
         //belka 6
-        createColisionAndDrawing(200, 1270, 1150, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(200, 1300, 1150, "#444444", 30, "Colision();", 0, 0);
         //belka 7
         createColisionAndDrawing(250, 1020, 950, "#444444", 30, "Colision();", 0, 0);
         //belka 8
