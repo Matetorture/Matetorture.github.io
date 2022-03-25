@@ -98,7 +98,7 @@ const loop = function ()
     
     // szybkość
     square.xVelocity *= speed2;
-    square.yVelocity *= 0.9;
+    square.yVelocity *= speed2;
 
     // Ground
     if (square.y > heightMap - 14 - 16 - 32) 
@@ -170,8 +170,8 @@ function drawingLevel()
         //END
         createColisionAndDrawing(655, 120, 70, "#ffdc09", 80, "Win()", 20, 80);
     }
-    //level 1
-    if (level==2)
+    //level 2
+    else if (level==2)
     {
         //belka 1
         createColisionAndDrawing(100, 220, 170, "#444444", 30, "Colision();", 0, 0);
@@ -193,6 +193,34 @@ function drawingLevel()
         createColisionAndDrawing(250, 1420, 1220, "#444444", 30, "Colision();", 0, 0);
         //END
         createColisionAndDrawing(305, 1370, 1320, "#ffdc09", 80, "Win()", 20, 80);
+    }
+    //level 3
+    else if (level==3)
+    {
+        //belka 1
+        createColisionAndDrawing(100, 220, 170, "#444444", 30, "Colision();", 0, 0);
+        //jump pad 1
+        createColisionAndDrawing(210, 400, 300, "#006abc", 30, "JumpPad();", 0, 0);
+        //belka 2
+        createColisionAndDrawing(570, 600, 500, "#444444", 30, "Colision();", 0, 0);
+        //speed 1
+        createColisionAndDrawing(570, 900, 600, "#FFA500", 30, "Speed();", 0, 0);
+        //lava 1
+        createColisionAndDrawing(450, 1380, 520, "#a70000", 70, "Dead();", 20, 70);
+        //belka 3
+        createColisionAndDrawing(570, 1400, 1250, "#444444", 30, "Colision();", 0, 0);
+        //belka 4
+        createColisionAndDrawing(300, 1620, 1450, "#444444", 30, "Colision();", 0, 0);
+        //belka 5
+        createColisionAndDrawing(300, 1620, 1450, "#444444", 30, "Colision();", 0, 0);
+        //belka 6
+        createColisionAndDrawing(200, 1270, 1150, "#444444", 30, "Colision();", 0, 0);
+        //belka 7
+        createColisionAndDrawing(250, 1020, 950, "#444444", 30, "Colision();", 0, 0);
+        //belka 8
+        createColisionAndDrawing(250, 820, 700, "#444444", 30, "Colision();", 0, 0);
+        //END
+        createColisionAndDrawing(305, 770, 720, "#ffdc09", 80, "Win()", 20, 80);
     }
     // no colison
     gravityTF = true;
