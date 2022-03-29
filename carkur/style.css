@@ -1,22 +1,17 @@
-* 
-{
-    margin:0;
-    padding:0;
-}
-
-html, body 
-{
-    height:100%;
-    width:100%;
-}
-
 body 
 {
-    align-content:space-around;
     background-color:#5b5b5b;
     color:#d3d3d3;
-    display:grid;
-    justify-content:center;
+    display:block;
+    margin: 1%;
+}
+canvas
+{
+    /* width: 100%;
+    height: 100%; */
+    margin: auto;
+    display: block;
+    margin-bottom: 2%;
 }
 
 label
@@ -25,12 +20,18 @@ label
     width: 100%;
 }
 
-button
+nav
 {
-    width: 33%;
-    margin: auto;
+    display: grid;
 }
 
+button
+{
+    margin: auto;
+    width: 30%;
+}
+
+/* win */
 .dialog-win
 {
     text-align: center;

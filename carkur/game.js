@@ -30,6 +30,21 @@ const square =
 
 };
 
+            // *  level 4 cube1
+            const cube1 = 
+            {
+                height: 32,
+                width: 32,
+                x: 500,
+                xVelocity: 0,
+                y: heightMap - 200,
+                yVelocity: 0
+            };
+            var gravityCube1 = gravity;
+            
+            var openPlatform = false;
+
+
 // Sterowanie
 const controller =
 {
@@ -86,6 +101,12 @@ const loop = function ()
         jumpHeight2 = jumpHeight;
     }
 
+
+
+    
+
+
+
     // działanie klawisza w lewo
     if (controller.left) {square.xVelocity -= 0.5;}
     // działanie klawisza w prawo
@@ -95,6 +116,18 @@ const loop = function ()
     square.yVelocity += gravity2;
     square.x += square.xVelocity;
     square.y += square.yVelocity;
+
+                // * cube1
+                cube1.yVelocity += gravityCube1;
+                cube1.x += cube1.xVelocity;
+                cube1.y += cube1.yVelocity;
+                
+                if (square.x < cube1.x + 33 && square.x > cube1.x - 33 && square.y < cube1.y + 33 && square.y > cube1.y - 33 && cube1.x > 0 && cube1.x < widthMap - square.width && level==4)
+                {
+                    cube1.x += square.xVelocity;
+                    Colision();gravityTF = false;
+                }
+
     
     // szybkość
     square.xVelocity *= speed2;
@@ -107,6 +140,13 @@ const loop = function ()
         square.y = heightMap - 14 - 16 - 32;
         square.yVelocity = 0;
     }
+
+                // * cube1
+                if (cube1.y > heightMap - 14 - 16 - 32) 
+                {
+                    cube1.y = heightMap - 14 - 16 - 32;
+                    cube1.yVelocity = 0;
+                }
 
     // ! Site
     // Left
@@ -121,12 +161,22 @@ const loop = function ()
     //Rysuje lewel
     drawingLevel();
 
-    // Cube drawing
+    
+                    // * cube1 drawing
+                    if (level==4)
+                    {
+                        context.fillStyle = "#A0522D";
+                        context.beginPath();
+                        context.rect(cube1.x, cube1.y, cube1.width, cube1.height);
+                        context.fill(); 
+                    }
+                    
+
+    // squer drawing
     context.fillStyle = "#fff487";
     context.beginPath();
     context.rect(square.x, square.y, square.width, square.height);
     context.fill();
-
 
     // ground drawing
     context.strokeStyle = "#444444";
@@ -150,77 +200,105 @@ function drawingLevel()
     if (level==1)
     {
         //belka 1
-        createColisionAndDrawing(100, 1220, 1020, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(100, 1020, 1220, "#444444", 30, "Colision();", 0, 0);
         //belka 2
-        createColisionAndDrawing(180, 1570, 1370, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(180, 1370, 1570, "#444444", 30, "Colision();", 0, 0);
         //belka 3
-        createColisionAndDrawing(250, 1270, 1070, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(250, 1070, 1270, "#444444", 30, "Colision();", 0, 0);
         //lava 1
-        createColisionAndDrawing(260, 970, 70, "#a70000", 70, "Dead();", 20, 70);
+        createColisionAndDrawing(260, 70, 970, "#a70000", 70, "Dead();", 20, 70);
         //belka 4
-        createColisionAndDrawing(325, 920, 870, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(325, 870, 920, "#444444", 30, "Colision();", 0, 0);
         //belka 5    
-        createColisionAndDrawing(350, 750, 700, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(350, 700, 750, "#444444", 30, "Colision();", 0, 0);
         //belka 6    
-        createColisionAndDrawing(450, 620, 570, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(450, 570, 620, "#444444", 30, "Colision();", 0, 0);
         //belka 7
-        createColisionAndDrawing(520, 430, 380, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(520, 380, 430, "#444444", 30, "Colision();", 0, 0);
         //belka 8
-        createColisionAndDrawing(600, 220, 20, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(600, 20, 220, "#444444", 30, "Colision();", 0, 0);
         //END
-        createColisionAndDrawing(655, 120, 70, "#ffdc09", 80, "Win()", 20, 80);
+        createColisionAndDrawing(655, 70, 120, "#ffdc09", 80, "Win()", 20, 80);
     }
     //level 2
     else if (level==2)
     {
         //belka 1
-        createColisionAndDrawing(100, 220, 170, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(100, 170, 220, "#444444", 30, "Colision();", 0, 0);
         //belka 2
-        createColisionAndDrawing(150, 445, 395, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(150, 395, 445, "#444444", 30, "Colision();", 0, 0);
         //belka 3
-        createColisionAndDrawing(150, 620, 570, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(150, 570, 620, "#444444", 30, "Colision();", 0, 0);
         //jump pad 1
-        createColisionAndDrawing(225, 920, 720, "#006abc", 30, "JumpPad();", 0, 0);
+        createColisionAndDrawing(225, 720, 920, "#006abc", 30, "JumpPad();", 0, 0);
         //belka 4
-        createColisionAndDrawing(600, 1120, 970, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(600, 970, 1120, "#444444", 30, "Colision();", 0, 0);
         //speed 1
-        createColisionAndDrawing(600, 1420, 1120, "#FFA500", 30, "Speed();", 0, 0);
+        createColisionAndDrawing(600, 1120, 1420, "#FFA500", 30, "Speed();", 0, 0);
         //belka 5
-        createColisionAndDrawing(600, 1570, 1420, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(600, 1420, 1570, "#444444", 30, "Colision();", 0, 0);
         //belka 6
-        createColisionAndDrawing(400, 1620, 1520, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(400, 1520, 1620, "#444444", 30, "Colision();", 0, 0);
         //belka 7
-        createColisionAndDrawing(250, 1420, 1220, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(250, 1220, 1420, "#444444", 30, "Colision();", 0, 0);
         //END
-        createColisionAndDrawing(305, 1300, 1250, "#ffdc09", 80, "Win()", 20, 80);
+        createColisionAndDrawing(305, 1250, 1300, "#ffdc09", 80, "Win()", 20, 80);
     }
     //level 3
     else if (level==3)
     {
         //belka 1
-        createColisionAndDrawing(100, 220, 170, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(100, 170, 220, "#444444", 30, "Colision();", 0, 0);
         //jump pad 1
-        createColisionAndDrawing(210, 400, 300, "#006abc", 30, "JumpPad();", 0, 0);
+        createColisionAndDrawing(210, 300, 400, "#006abc", 30, "JumpPad();", 0, 0);
         //belka 2
-        createColisionAndDrawing(570, 600, 500, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(570, 500, 600, "#444444", 30, "Colision();", 0, 0);
         //speed 1
-        createColisionAndDrawing(570, 900, 600, "#FFA500", 30, "Speed();", 0, 0);
+        createColisionAndDrawing(570, 600, 900, "#FFA500", 30, "Speed();", 0, 0);
         //lava 1
-        createColisionAndDrawing(450, 1380, 520, "#a70000", 70, "Dead();", 20, 70);
+        createColisionAndDrawing(450, 520, 1380, "#a70000", 70, "Dead();", 20, 70);
         //belka 3
-        createColisionAndDrawing(570, 1400, 1250, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(570, 1250, 1400, "#444444", 30, "Colision();", 0, 0);
         //belka 4
-        createColisionAndDrawing(300, 1620, 1450, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(300, 1450, 1620, "#444444", 30, "Colision();", 0, 0);
         //belka 5
-        createColisionAndDrawing(300, 1620, 1450, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(200, 1150, 1300, "#444444", 30, "Colision();", 0, 0);
         //belka 6
-        createColisionAndDrawing(200, 1300, 1150, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(250, 950, 1020, "#444444", 30, "Colision();", 0, 0);
         //belka 7
-        createColisionAndDrawing(250, 1020, 950, "#444444", 30, "Colision();", 0, 0);
-        //belka 8
-        createColisionAndDrawing(250, 820, 700, "#444444", 30, "Colision();", 0, 0);
+        createColisionAndDrawing(250, 700, 820, "#444444", 30, "Colision();", 0, 0);
         //END
-        createColisionAndDrawing(305, 770, 720, "#ffdc09", 80, "Win()", 20, 80);
+        createColisionAndDrawing(305, 720, 770, "#ffdc09", 80, "Win()", 20, 80);
+    }
+    else if (level==4)
+    {
+        gravityCube1 = 0.5;
+        //belka 1
+        createColisionAndDrawing(100, 170, 600, "#444444", 30, "Colision();", 0, 0); 
+                        //belka 1 cube1
+                        createColisionAndDrawingCube1(100, 170, 600, "#444444", 30, "gravityCube1=0; cube1.yVelocity = 0;", 0, 0);
+         //button 1
+         openPlatform = false;
+         createColisionAndDrawing(30, 1200, 1230, "#bf8bff", 30, "openPlatform = true;", 0, 10); 
+                        //button 1 cube1
+                        createColisionAndDrawingCube1(30, 1200, 1230, "#bf8bff", 30,"openPlatform = true;", 0, 10);
+        // platforma 1
+        if (openPlatform==false)
+        {
+            createColisionAndDrawing(200, 650, 900, "#e5d0ff", 30, "", 0, 0);
+        }
+        else if (openPlatform==true)
+        {
+            createColisionAndDrawing(200, 650, 900, "#bf8bff", 30, "Colision();", 0, 0);
+        }
+        //belka 2
+        createColisionAndDrawing(300, 950, 1000, "#444444", 30, "Colision();", 0, 0);
+        //jump pad 1  
+        createColisionAndDrawing(300, 1200, 1400, "#006abc", 30, "JumpPad();", 0, 0);
+        //belka 3
+        createColisionAndDrawing(600, 850, 1100, "#444444", 30, "Colision();", 0, 0);
+        //END
+        createColisionAndDrawing(655, 870, 920, "#ffdc09", 80, "Win()", 20, 80);
     }
     // no colison
     gravityTF = true;
@@ -260,11 +338,12 @@ function Win()
 function createColisionAndDrawing(createY, createX1, createX2, color, lineW, attribute, heightMinus, heightPlus)
 {
     //if colision
-    if (square.y > heightMap - createY - 50 - heightMinus && square.y < heightMap - createY - 40 + heightPlus && square.x < createX1 && square.x > createX2 - 32) 
+    if (square.y > heightMap - createY - 50 - heightMinus && square.y < heightMap - createY - 40 + heightPlus  && square.x > createX1 - 32 && square.x < createX2) 
     {
         eval(attribute);
         gravityTF = false;
     }
+    
     //if no colison
     if (gravityTF == true)
     {
@@ -280,6 +359,16 @@ function createColisionAndDrawing(createY, createX1, createX2, color, lineW, att
     context.lineTo(createX2, heightMap - createY);
     context.stroke();
 }
+                // * create colision cube1
+                function createColisionAndDrawingCube1(createY, createX1, createX2, color, lineW, attribute, heightMinus, heightPlus)
+                {
+                    //if colision
+                    if (cube1.y > heightMap - createY - 50 - heightMinus && cube1.y < heightMap - createY - 40 + heightPlus  && cube1.x > createX1 - 32 && cube1.x < createX2) 
+                    {
+                        eval(attribute);
+                    }
+                }
+
 
 //game mode
 const mode = document.querySelector('#mode');
@@ -294,3 +383,13 @@ mode.addEventListener("submit", (e) =>
 
     speed = document.querySelector('#speed').value;
 });
+
+
+
+
+
+
+
+
+
+
