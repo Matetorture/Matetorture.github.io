@@ -90,7 +90,7 @@ function drawingLevel()
         // platforma 1
         if (openPlatform1==false)
         {
-            createColisionAndDrawing(200, 650, 900, "#e5d0ff", 30, "", 0, 0);
+            createColisionAndDrawing(200, 650, 900, "#1a1a1a", 30, "", 0, 0);
         }
         else if (openPlatform1==true)
         {
