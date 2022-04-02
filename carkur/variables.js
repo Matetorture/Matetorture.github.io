@@ -17,7 +17,7 @@ canvas.canvas.height = heightMap;
 canvas.canvas.width = widthMap;
 
 // Level
-var level = 4;
+var level = 1;
 
 
 const player1 = 
