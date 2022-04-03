@@ -51,9 +51,31 @@ const loop = function ()
 
     // ! Site
     // Left
-    if (cube1.x < 0) { cube1.x = 0; } 
+    if (cube1.x < 1) 
+    { 
+        if (cube1.y - 1 < player1.y )
+        { 
+            player1.x = cube1.width;
+        }
+        else if (cube1.y < player1.y)
+        {
+            player1.x = 1; 
+        }
+        cube1.x = 1; 
+    } 
     // Right
-    else if (cube1.x > widthMap - cube1.width) { cube1.x = widthMap - cube1.width;}
+    else if (cube1.x > widthMap - cube1.width - 1) 
+    { 
+        if (cube1.y - 1 < player1.y )
+        { 
+            player1.x =  widthMap - cube1.width - 1 - cube1.width;
+        }
+        else if (cube1.y < player1.y)
+        {
+            player1.x = widthMap - cube1.width - 1;
+        }
+        cube1.x = widthMap - cube1.width - 1; 
+    }
 
     // background drawing
     canvas.fillStyle = "#131313";

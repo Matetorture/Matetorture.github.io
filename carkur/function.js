@@ -97,7 +97,7 @@ function groundItems(cubeY)
 {
     eval
     (
-        // level 4
+        // level 5
         'if (' + cubeY + '> heightMap - 14 - 16 - 32)' +
         '{' +
         // cube1
