@@ -13,6 +13,22 @@ var jumpHeight = 20;
 var speed = 0.9;
 var speed2 = speed;
 
+var dashCooldown = 10000;
+
+var timeDash = Date.now();
+var timeNow = Date.now();
+var timeDeltaDash = 0;
+var dashBar = document.querySelector("#progres");
+
+
+var timerString = "0:00.0";
+var milisec = 0;
+var sec = 0;
+var secString = "00";
+var min = 0;
+var lastTime = "0:00.0"
+
+
 canvas.canvas.height = heightMap;
 canvas.canvas.width = widthMap;
 
@@ -28,8 +44,8 @@ const player1 =
   x: 0,
   xVelocity: 0,
   y: heightMap - 100,
-  yVelocity: 0
-
+  yVelocity: 0,
+  rotationLeft: false
 };
 
 
@@ -41,9 +57,9 @@ const controller =
   left: false,
   right: false,
   up: false,
+  dash: false,
   keyListener: function (event) 
   {
-    
     var key_state = (event.type == "keydown") ? true : false;
 
     switch (event.keyCode) 
@@ -73,6 +89,11 @@ const controller =
         break;
         case 68:// D
         controller.right = key_state;
+        break;
+
+        // DASH
+        case 16:// RIGHT Shift
+        controller.dash = key_state;
         break;
     }
   }

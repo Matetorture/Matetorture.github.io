@@ -4,6 +4,7 @@ body
     color:#d3d3d3;
     display:block;
     margin: 1%;
+    text-align: center;
 }
 canvas
 {
@@ -11,7 +12,6 @@ canvas
     height: 100%; */
     margin: auto;
     display: block;
-    margin-bottom: 2%;
 }
 
 label
@@ -25,14 +25,47 @@ nav
     display: grid;
 }
 
+.dialog-win
+{
+    color: #d3d3d3;
+}
+
 button
 {
     margin: auto;
     width: 30%;
 }
 
-/* win */
-.dialog-win
+/* dash bar */
+#dash-bar
 {
-    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    width: 50%;
+    height: 40px;
+    background-color: #444444;
+    border-radius: 40px;
+}
+#progres
+{
+    background-color: red;
+    height: 40px;
+    margin: 0;
+    border-radius: 40px;
+    font-size: 36px;
+    color: #d3d3d3;
+
+    width: 50%;
+}
+p
+{
+    font-size: 36px;
+    color: #d3d3d3;
+    margin: 0;
+    margin-top: 20px;
+}
+.last-time
+{
+    margin-bottom: 20px;
 }

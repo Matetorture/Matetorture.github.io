@@ -34,6 +34,15 @@ function Win()
 
     openPlatform1 = false;
 
+    // wypisanie last time
+    timeel = [].slice.call(document.querySelectorAll('.last-time')).forEach((time) => {
+        time.innerHTML = timerString;
+    });
+    // reset last time
+    milisec = 0;
+    sec = 0;
+    min = 0;
+
     // mejsce cube1
     WhereItemlevel();
 }
@@ -47,9 +56,8 @@ function createColisionAndDrawing(createY, createX1, createX2, color, lineW, att
         eval(attribute);
         gravityTF = false;
     }
-    
     //if no colison
-    if (gravityTF == true)
+    else if (gravityTF == true)
     {
         gravity2=gravity;
         speed2 = speed;
@@ -76,6 +84,7 @@ function createColisionAndDrawingCube1(createY, createX1, createX2, attribute, h
 
 function drawingEverything()
 {
+    
     drawingItems();
 
     // player drawing
@@ -105,4 +114,47 @@ function groundItems(cubeY)
         cubeY + 'Velocity = 0;' +
         '}'
     );
+}
+//(player1.x, player1.y, cube1.x, cube1.y, cube1.width)
+
+function siteCube(player, cube)
+{
+    eval
+    (
+        // ! Site
+        // Left
+        'if (' + cube + '.x < 1)' +
+        '{' +
+            'if (' + cube + '.y - 1 < ' + player + '.y )' +
+            '{' +
+            player + '.x = ' + cube + '.width;' +
+            '}' +
+            'else if (' + cube + '.y < ' + player + '.y)' +
+            '{' +
+                player + '.x = 1;' +
+            '}' +
+            cube + '.x = 1;' +
+        '}' +
+        // Right
+        'else if (' + cube + '.x > widthMap - ' + cube + '.width - 1)' +
+        '{' +
+            'if (' + cube + '.y - 1 < ' + player + '.y )' +
+            '{' +
+                player + '.x =  widthMap - ' + cube + '.width - 1 - ' + cube + '.width;' +
+            '}' +
+            'else if (' + cube + '.y < ' + player + '.y)' +
+            '{' +
+                player + '.x = widthMap - ' + cube + '.width - 1;' +
+            '}' +
+            cube + '.x = widthMap - ' + cube + '.width - 1;' +
+        '}'
+    );
+}
+
+function dash()
+{
+    // działanie w lewo
+    if (player1.rotationLeft == true) {player1.xVelocity -= 30; player1.yVelocity -= 15; }
+    // działanie w prawo
+    else if (player1.rotationLeft == false) { player1.xVelocity += 30; player1.yVelocity -= 15; }
 }
