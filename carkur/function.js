@@ -8,13 +8,13 @@ function Colision()
 function JumpPad()
 {
     Colision();
-    jumpHeight2 = 50;
+    jumpModifier = 2.5;
 }
 
 function Speed()
 {
     Colision();
-    speed2=0.97;
+    speedModifier = 4;
 }
 
 function Dead()
@@ -60,7 +60,7 @@ function createColisionAndDrawing(createY, createX1, createX2, color, lineW, att
     else if (gravityTF == true)
     {
         gravity2=gravity;
-        speed2 = speed;
+        speedModifier = 1;
     }
 
     //drawing
@@ -115,7 +115,6 @@ function groundItems(cubeY)
         '}'
     );
 }
-//(player1.x, player1.y, cube1.x, cube1.y, cube1.width)
 
 function siteCube(player, cube)
 {
@@ -151,10 +150,62 @@ function siteCube(player, cube)
     );
 }
 
-function dash()
+function dash() // todo podskok w trakcie dasha
 {
-    // działanie w lewo
-    if (player1.rotationLeft == true) {player1.xVelocity -= 30; player1.yVelocity -= 15; }
-    // działanie w prawo
-    else if (player1.rotationLeft == false) { player1.xVelocity += 30; player1.yVelocity -= 15; }
+    timeNow = Date.now();
+    timeDeltaDash = timeNow - timeDash;
+    if (timeDeltaDash > dashCooldown && controller.dash)
+    {
+        timeDash = Date.now();
+        // działanie w lewo
+        if (player1.rotationLeft == true)
+        {
+            player1.xVelocity -= 30;
+            player1.yVelocity -= 15; 
+        }
+        // działanie w prawo
+        else if (player1.rotationLeft == false) 
+        {
+            player1.yVelocity -= jumpHeight * jumpModifier * jumpMode;
+            player1.xVelocity += 20;
+            player1.jumping = true; 
+        }
+    }
+    if (timeDeltaDash/dashCooldown <= 1)
+    {
+        dashBar.style.width = timeDeltaDash/dashCooldown * 100 + "%";
+        dashBar.innerHTML = Math.floor(timeDeltaDash/dashCooldown * 100);
+    }
+    else 
+    {
+        dashBar.style.width = "100%";
+        dashBar.innerHTML = dashCooldown / 100;
+    }
+}
+
+function timer()
+{
+    timerString = min + ":" + secString + "." + milisec;
+    if (sec >= 0 && sec <= 9)
+    {
+        secString = "0"+sec;
+    }
+    if (milisec >= 9)
+    {
+        milisec = 0;
+        sec++;
+        if (sec >= 0 && sec <= 9)
+        {
+            secString = "0"+sec;
+        }
+        else
+        {
+            secString = sec;
+        }
+    }
+    if (sec >= 59)
+    {
+        sec = 0;
+        min++;
+    }
 }

@@ -7,11 +7,14 @@ var gravity = 0.5;
 var gravity2 = gravity;
 var gravityTF = true;
 
-var jumpHeight2 = 20;
+// var jumpHeight2 = 20;
 var jumpHeight = 20;
+var jumpModifier = 1
+var jumpMode = 1;
 
-var speed = 0.9;
-var speed2 = speed;
+var swing = 0.9;
+var speedModifier = 1;
+var speedMode = 1;
 
 var dashCooldown = 10000;
 
@@ -98,7 +101,6 @@ const controller =
     }
   }
 }
-
 
 
 // ! LEVELS

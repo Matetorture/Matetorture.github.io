@@ -4,57 +4,12 @@ const loop = function ()
     // działanie klawisza skoku
     if (controller.up && player1.jumping == false) 
     {
-        player1.yVelocity -= jumpHeight2;
+        player1.yVelocity -= jumpHeight * jumpModifier * jumpMode;
         player1.jumping = true;
 
         //niwelacja odbiajczy
-        jumpHeight2 = jumpHeight;
+        jumpModifier = 1;
     }
-
-    // ! dash
-    timeNow = Date.now();
-    timeDeltaDash = timeNow - timeDash;
-    if (timeDeltaDash > dashCooldown && controller.dash)
-    {
-        timeDash = Date.now();
-        dash();
-    }
-    if (timeDeltaDash/dashCooldown <= 1)
-    {
-        dashBar.style.width = timeDeltaDash/dashCooldown * 100 + "%";
-        dashBar.innerHTML = Math.floor(timeDeltaDash/dashCooldown * 100);
-    }
-    else 
-    {
-        dashBar.style.width = "100%";
-        dashBar.innerHTML = dashCooldown / 100;
-    }
-
-    // ! timer 
-    timerString = min + ":" + secString + "." + milisec;
-    if (sec >= 0 && sec <= 9)
-    {
-        secString = "0"+sec;
-    }
-    if (milisec >= 9)
-    {
-        milisec = 0;
-        sec++;
-        if (sec >= 0 && sec <= 9)
-        {
-            secString = "0"+sec;
-        }
-        else
-        {
-            secString = sec;
-        }
-    }
-    if (sec >= 59)
-    {
-        sec = 0;
-        min++;
-    }
-    
 
     // działanie klawisza w lewo
     if (controller.left) {player1.xVelocity -= 0.5; player1.rotationLeft = true; }
@@ -63,14 +18,20 @@ const loop = function ()
 
     // gravity
     player1.yVelocity += gravity2;
-    player1.x += player1.xVelocity;
-    player1.y += player1.yVelocity;
+    player1.x += player1.xVelocity * speedModifier * speedMode;
+    player1.y += player1.yVelocity * speedModifier * speedMode;
+    
+    // ! dash
+    dash()
+
+    // ! timer 
+    timer();
 
     createVelocityItems();
     
     // szybkość
-    player1.xVelocity *= speed2;
-    player1.yVelocity *= speed2;
+    player1.xVelocity *= swing;
+    player1.yVelocity *= swing;
 
     if (player1.xVelocity < 0.1 && player1.xVelocity > 0.1)
     {
@@ -126,6 +87,16 @@ setInterval(() => {
 }, 100);
 
 
+//Scrolling web with spacebar OFF
+window.addEventListener('keydown', (elem) => 
+{  
+    if (elem.keyCode == 32 && elem.target == document.body) 
+    {  
+        elem.preventDefault(); 
+    }  
+});
+
+
 //game mode
 const mode = document.querySelector('#mode');
 
@@ -135,9 +106,9 @@ mode.addEventListener("submit", (e) =>
 
     level = document.querySelector('#level').value;
 
-    jumpHeight = document.querySelector('#jump').value;
+    jumpMode = document.querySelector('#jump').value;
 
-    speed = document.querySelector('#speed').value;
+    speedMode = document.querySelector('#speed').value;
 
     // reset ustawienia rzeczy
     level = level - 1;

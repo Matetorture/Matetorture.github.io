@@ -92,7 +92,7 @@
                                             </span>
                                             <span class="mdc-notched-outline__trailing"></span>
                                         </span>
-                                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" id="jump" value="20">
+                                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" id="jump" value="1">
                                     </label>
                                 </td>
                                 <td>
@@ -104,7 +104,7 @@
                                             </span>
                                             <span class="mdc-notched-outline__trailing"></span>
                                         </span>
-                                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" id="speed" value="0.9">
+                                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" id="speed" value="1">
                                     </label>
                                 </td>
                             </tr>
@@ -139,10 +139,13 @@
 
         var buttonM = document.querySelector('.button-mode');
 
-
+        //otwieranie mode menu
         buttonM.addEventListener('click', function()
         {
             dialogM.open();
+
+            //refresh mode panel - level
+            document.querySelector('#level').value = level;
         })
 
         // przesowanie napisów do góry
