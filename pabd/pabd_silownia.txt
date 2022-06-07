@@ -115,7 +115,7 @@ INSERT klient(imie, nazwisko, pesel) VALUES
 (
 	"William",
     "Afton",
-    "00000001978"
+    "00000001987"
 );
 INSERT klient(imie, nazwisko, pesel) VALUES 
 (
