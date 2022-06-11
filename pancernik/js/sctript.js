@@ -17,20 +17,23 @@ window.addEventListener( 'resize', function()
 controls = new THREE.OrbitControls( camera, renderer.domElement );
 // var light = new THREE.AmbientLight( 0xd3d3d3 );
 var light = new THREE.DirectionalLight( 0xffffff ,1);
+light.position.set(2, 2, 5);
+
+var light2 = new THREE.DirectionalLight( 0xffffff ,1);
+light2.position.set(2, -2, -15);
+
+var light3 = new THREE.DirectionalLight( 0xffffff ,1);
+light3.position.set(-1, 10, 0);
+
+var light4 = new THREE.DirectionalLight( 0xffffff ,1);
+light4.position.set(0, -12, 3);
 
 scene.add( light );
+scene.add( light2 );
+scene.add( light3 );
+scene.add( light4 );
 
-//obj
-// var objLoader = new THREE.OBJLoader();
-// objLoader.setPath('model/');
-// objLoader.load('pancernik.obj', 
-//     function(object)
-//     {
-//         // object.position.y -= 60;
-//         scene.add(object);
-//     }
-// );
-//glb
+//glb loader
 const loader = new THREE.GLTFLoader();
 loader.load('model/pancernik.glb', function(glb)
 {
@@ -43,7 +46,7 @@ function(xhr)
 },
 function(error)
 {
-    console.log('error');
+    console.log(error);
 }
 )
 
@@ -61,13 +64,13 @@ var GameLoop = function()
 {
     requestAnimationFrame(GameLoop);
 
-    light.position.z = camera.position.z;
-    light.position.x = camera.position.x;
-    light.position.y = camera.position.y;
+    // light.position.z = camera.position.z;
+    // light.position.x = camera.position.x;
+    // light.position.y = camera.position.y;
 
-    light.rotation.z = camera.rotation.z;
-    light.rotation.x = camera.rotation.x;
-    light.rotation.y = camera.rotation.y;
+    // light.rotation.z = camera.rotation.z;
+    // light.rotation.x = camera.rotation.x;
+    // light.rotation.y = camera.rotation.y;
 
     update();
     render();
