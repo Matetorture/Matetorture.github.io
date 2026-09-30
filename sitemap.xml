@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://szkredka.pl/</loc>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://szkredka.pl/img/logo_min.png</image:loc>
+      <image:caption>Logo SZKREDKA profesjonalny serwis Krauss Maffei</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://szkredka.pl/img/logo.png</image:loc>
+      <image:caption>Logo SZKREDKA w całości - serwis wtryskarek Krauss Maffei</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://szkredka.pl/img/icon.png</image:loc>
+      <image:caption>Ikona przedstawiająca wtryskarkę Krauss Maffei</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://szkredka.pl/img/diagnostic.svg</image:loc>
+      <image:caption>Ikona diagnostyki Krauss Maffei</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://szkredka.pl/img/repair.svg</image:loc>
+      <image:caption>Ikona naprawy maszyn Krauss Maffei</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://szkredka.pl/img/consulting.svg</image:loc>
+      <image:caption>Ikona doradztwa technicznego</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
